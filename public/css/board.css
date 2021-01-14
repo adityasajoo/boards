@@ -1,0 +1,94 @@
+body{
+  margin: 0%;
+  padding: 0%;
+  font-family: 'Nerko One', cursive;
+  overflow: hidden; /* Hide scrollbars */
+}
+
+ 
+
+.navbar-brand {
+  font-size: 25px;
+}
+
+nav{
+  width:  150px !important;
+}
+
+.navbar-container .navbar{
+  margin: 10px;
+  width: 100%;
+  background-color: #fafcc2 !important;
+  position: absolute;
+  z-index: 1;
+}
+
+
+
+
+#canvas {
+  z-index: 0;
+}
+
+.toolbox{
+  cursor: pointer;
+  padding: 2px;
+  margin:10px;
+  width: 55px;  
+  position: absolute; 
+  z-index: 1;
+  background-color: #fafcc2;
+
+}
+
+.toolbox.left{
+  top: 100px;
+  left: 0px;
+} 
+
+.toolbox.bottom{
+  bottom: 0px;
+  left: 10px;
+ 
+}
+
+
+.toolbox.bottom .pages{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.toolbox.right{
+  top: 100px;
+  right: 0px;
+}
+
+.toolbox.share{
+  top: 0px;
+  right: 0px;
+}
+
+.tools{
+  width: 100%;
+  height: 100%;
+}
+
+.item{
+  height: 55px;
+  width: 100%;
+  padding: 10px;
+}
+
+.active{
+  background-color: #ccf6c8;
+}
+
+.item > img{
+  height: 100%;
+  width: 100%;
+}
+
+.pages{
+  font-size: 20px;
+}
+

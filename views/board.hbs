@@ -1,0 +1,136 @@
+<div id="canvas-wrapper">
+    <div class="navbar-container" style="display: inline;">
+        <nav class="navbar navbar-light bg-info rounded">
+            <span class="navbar-brand mb-0 h3">TorusBoard</span>
+        </nav>
+    </div>
+
+
+    <div class="canvas-container">
+
+        <canvas id='canvas'></canvas>
+
+
+    </div>
+
+    <div class="toolbox left rounded">
+        <div class="group tools ">
+            <div class="item  rounded" data-tool="select" data-toggle="tooltip" data-placement="right" title="Select">
+                <img class="image" src="/img/board/select.svg" alt="err">
+            </div>
+            <div class="item" data-undo="undo" data-toggle="tooltip" data-placement="right" title="Undo">
+                <img class="image" src="/img//board/undo.svg" alt="err">
+            </div>
+            <div class="item active" data-tool="pen" data-toggle="tooltip" data-placement="right" title="Pen">
+                <img class="image" src="/img//board/pen.svg" alt="err">
+            </div>
+            <div class="item " data-tool="line" data-toggle="tooltip" data-placement="right" title="Line">
+                <img class="image" src="/img//board/line.svg" alt="err">
+            </div>
+            <div class="item" data-tool="rectangle" data-toggle="tooltip" data-placement="right" title="Rectangle">
+                <img class="image" src="/img//board/rect.svg" alt="err">
+            </div>
+            <div class="item" data-tool="circle" data-toggle="tooltip" data-placement="right" title="Circle">
+                <img class="image" src="/img//board/circle.svg" alt="err">
+            </div>
+            <div class="item" data-tool="text" data-toggle="tooltip" data-placement="right" title="Text">
+                <img class="image" src="/img//board/text.svg" alt="err">
+            </div>
+            <div class="item" data-tool="eraser" data-toggle="tooltip" data-placement="right" title="Eraser">
+                <img class="image" src="/img//board/eraser.svg" alt="err">
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbox share rounded">
+        <div class="item  rounded" title="Invite" data-toggle="modal" data-target="#smallModal">
+            <img class="image" src="/img/board/invite.svg" alt="err">
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="smallModal" tabindex="-1" data-backdrop="false" role="dialog"
+            aria-labelledby="basicModal" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #fafcc2;">
+                        <h4 class="modal-title" id="myModalLabel">Share this board</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Body Link</h3>
+                        <div class="md-3">
+                            <input class="form-control" type="text" id="boardLink" value="" readonly>
+                            <button class="btn" style="background-color: #fafcc2; margin-top:10px"
+                                onclick="share()">Copy Link</button>
+                        </div>
+
+                        <div>
+                            <p id="msg"></p>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="toolbox right rounded">
+        <div class="group tools">
+
+            <div class="item  rounded" data-zoom="zoom" data-toggle="tooltip" data-placement="left" title="Zoom">
+                <div id="zoomPercentage">100%</div>
+            </div>
+            <div class="item " data-tool="pan" data-toggle="tooltip" data-placement="left" title="Pan">
+                <img class="image" src="/img/board/move.svg" alt="err">
+            </div>
+            <div class="item color-picker" data-color="color" data-toggle="tooltip" data-placement="left" title="Color">
+                <img class="image palette" src="/img/board/palette.svg" alt="err">
+            </div>
+
+            <div class="item " id="load" data-toggle="tooltip" data-placement="left" title="Loading" style="margin-top: 10px; display: none;">
+                <div class="d-flex justify-content-center" >
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+<div class="toolbox bottom rounded">
+    <div class="pages">
+        <div class="item minus">
+            <div id="minus" data-toggle="tooltip" data-placement="top" title="Previous Page">-</div>
+        </div>
+        <div class=" item page" data-toggle="tooltip" data-placement="top" title="Pages">
+            <div id="pageNo">1/1</div>
+        </div>
+        <div class=" item plus">
+            <div id="plus" data-toggle="tooltip" data-placement="top" title="Next Page">+</div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    function share() {
+        var copyText = document.getElementById("boardLink");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+        document.getElementById("msg").innerHTML = "Link Copied !"
+    }
+</script>
